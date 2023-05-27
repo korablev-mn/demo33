@@ -13,6 +13,8 @@ public interface TaskRepository extends JpaRepository<Task, Long>, JpaSpecificat
 
     List<Task> findAll();
 
+    Optional<Task> findById(long id);
+
     @Transactional
     <S extends Task> S save(S entity);
 
