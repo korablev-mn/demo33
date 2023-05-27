@@ -1,0 +1,24 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.0.3:5432/postgres
+    usernamae: postgres
+    password: DaVinci
+    hikari:
+      connection-timeout: 15000
+      maximum-pool-size: 2
+      initialization-fail-timeout: -1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format-sql: true
+        default_schema: public
+        default_batch_fetch_size: 20
+    show-sql: true
+server:
+  port: 8085
+  servlet:
+    context-path: /
