@@ -31,7 +31,7 @@ public class Task {
 
     @Length(min = 0, max = 100)
     @isNoRussianPhones
-    private String description;
+    private String description = "";
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "creation_id", nullable = false, updatable = false)

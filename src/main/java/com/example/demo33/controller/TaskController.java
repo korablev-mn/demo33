@@ -53,7 +53,7 @@ public class TaskController {
         } catch (RuntimeException e) {
             throw new BadRequestException(e.getMessage());
         }
-        return new ResponseEntity<>("Task title: " + title + " deleted by user: " + userId, HttpStatus.OK);
+        return new ResponseEntity<>("Task title: '" + title + "' deleted by user: " + userId, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")
@@ -64,20 +64,20 @@ public class TaskController {
         } catch (RuntimeException e) {
             throw new BadRequestException(e.getMessage());
         }
-        return new ResponseEntity<>("Error: Task id: " + id + " deleted by user: " + userId, HttpStatus.OK);
+        return new ResponseEntity<>("Task id: '" + id + "' deleted by user: " + userId, HttpStatus.OK);
     }
 
     @GetMapping("/task")
     public Task find(@RequestParam("id") long id) {
         return taskService.findById(id).orElseThrow(() ->
-                new TaskNotFoundException("No Task by ID: " + id)
+                new TaskNotFoundException("No Task by ID: '" + id + "'")
         );
     }
 
     @GetMapping("/task/{title}")
     public Task findByTitle(@PathVariable String title) {
         return taskService.findByTitle(title).orElseThrow(() ->
-                new TaskNotFoundException("No Task by title: " + title)
+                new TaskNotFoundException("No Task by title: '" + title +"'")
         );
     }
 
